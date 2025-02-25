@@ -40,7 +40,7 @@ impl GameState for State {
 
 fn main() -> BError {
     let context = BTermBuilder::simple80x50()
-        .with_title("Dungeon Maul")
+        .with_title("Dungeon Mauler")
         .with_fps_cap(FPS)
         .with_resource_path("resources/")
         .build()?;
