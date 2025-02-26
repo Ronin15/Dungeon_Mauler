@@ -1,1 +1,1 @@
-Dungeon crawler -> Hand on Rust book, but with some of my personal tweaks for practice. 
+Dungeon crawler -> Hands on Rust book, but with some of my personal tweaks for practice. 
