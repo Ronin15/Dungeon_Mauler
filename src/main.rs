@@ -13,8 +13,8 @@ mod prelude {
     pub use legion::systems::CommandBuffer;
     pub use legion::world::SubWorld;
     pub use legion::*;
-    pub const SCREEN_WIDTH: i32 = 100;//80
-    pub const SCREEN_HEIGHT: i32 = 50;//50
+    pub const SCREEN_WIDTH: i32 = 100; //80
+    pub const SCREEN_HEIGHT: i32 = 50; //50
     pub const DISPLAY_WIDTH: i32 = SCREEN_WIDTH / 2;
     pub const DISPLAY_HEIGHT: i32 = SCREEN_HEIGHT / 2;
     pub use crate::camera::*;
@@ -63,7 +63,7 @@ impl State {
 
     fn game_over(&mut self, ctx: &mut BTerm) {
         ctx.set_active_console(2); // (1)
-        ctx.print_color_centered(2, RED, BLACK, "Your quest has ended."); // (2)
+        ctx.print_color_centered(2, RED, BLACK, "Your quest has ended.");
         ctx.print_color_centered(
             4,
             WHITE,
@@ -87,8 +87,7 @@ impl State {
         ctx.print_color_centered(9, GREEN, BLACK, "Press 1 to play again.");
 
         if let Some(VirtualKeyCode::Key1) = ctx.key {
-            // (3)
-            self.ecs = World::default(); // (4)
+            self.ecs = World::default();
             self.resources = Resources::default();
             let mut rng = RandomNumberGenerator::new();
             let map_builder = MapBuilder::new(&mut rng);
@@ -101,7 +100,7 @@ impl State {
                 .for_each(|pos| spawn_monster(&mut self.ecs, &mut rng, pos));
             self.resources.insert(map_builder.map);
             self.resources.insert(Camera::new(map_builder.player_start));
-            self.resources.insert(TurnState::AwaitingInput); // (5)
+            self.resources.insert(TurnState::AwaitingInput);
         }
     }
 }
